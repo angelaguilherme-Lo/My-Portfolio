@@ -1,0 +1,49 @@
+:root{
+  /* Brand palette (base tokens) */
+  --brand-ink: #1d2b3a;
+  --brand-champagne: #b48a5a;
+  --brand-sage: #6f8f86;
+
+  /* Neutrals */
+  --white: #ffffff;
+  --paper: #fbfaf8;
+  --text-900: #17181b;
+
+  /* Semantic (theme tokens used by UI) */
+  --bg: var(--paper);
+  --surface: rgba(255,255,255,.72);
+  --surface-strong: var(--white);
+  --text: var(--text-900);
+  --muted: rgba(23,24,27,.68);
+
+  --brand: var(--brand-ink);
+  --accent: var(--brand-champagne);
+  --accent2: var(--brand-sage);
+
+  --line: rgba(23, 24, 27, .10);
+
+  --radius: 18px;
+  --radius-sm: 14px;
+
+  --font: "New Brand Font", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background:
+    radial-gradient(900px 500px at 15% 0%, rgba(180,138,90,.12), transparent 60%),
+    radial-gradient(800px 600px at 90% 10%, rgba(111,143,134,.14), transparent 55%),
+    var(--bg);
+}
+
+a{ color: inherit; text-decoration: none; }
+button, input, textarea{ font-family: inherit; }
+
+::selection{
+  background: rgba(180,138,90,.28);
+}

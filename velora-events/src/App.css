@@ -1,0 +1,373 @@
+/* =========================
+   IMPORT PREMIUM FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #2d2d2d;
+  line-height: 1.7;
+  background: #f9f7f4;
+}
+
+/* =========================
+   TYPOGRAPHY SYSTEM
+========================= */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: #b76e79;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #3a3a3a;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #b76e79;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  color: #555;
+  font-size: 16px;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5%;
+  background: #ffffffcc; /* subtle transparency */
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  margin: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: 0.5s ease;
+}
+
+.navbar h1 {
+  font-size: 32px;
+  color: #b76e79;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.navbar:hover h1 {
+  letter-spacing: 3px;
+}
+
+/* Nav container */
+.navbar nav {
+  display: flex;
+  gap: 40px;
+}
+
+/* Nav links */
+.navbar nav a {
+  position: relative;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+/* =========================
+   HERO PARALLAX
+========================= */
+.hero {
+  position: relative;
+  padding: 120px 5%;
+  text-align: center;
+  height: 90vh;
+  background-image: url("/events.jpg");
+  background-size: cover;
+  background-attachment: fixed; /* parallax */
+  background-position: center;
+  border-radius: 24px;
+  overflow: hidden;
+  margin: 30px 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(247, 228, 234, 0.7), rgba(255, 255, 255, 0.3));
+  z-index: 1;
+}
+
+.hero h2,
+.hero p,
+.hero button {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero button fix */
+.hero button {
+  position: relative;       /* Ensure it sits above overlay */
+  z-index: 2;               /* Above the hero overlay */
+  padding: 18px 40px;       /* Slightly bigger for luxury feel */
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #b76e79, #d29aa3); /* Luxury gradient */
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(183, 110, 121, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect */
+.hero button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(183, 110, 121, 0.5);
+  background: linear-gradient(135deg, #d29aa3, #b76e79); /* Reversed gradient */
+}
+
+/* =========================
+   SERVICES SECTION
+========================= */
+.services {
+  padding: 100px 5%;  /* Ultra-luxury spacing */
+  text-align: center;
+  background: #fff8f9; /* Soft wedding blush background */
+  border-radius: 24px;
+  margin: 40px 0;
+}
+
+.services h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: #3a3a3a;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+
+/* =========================
+   CARD IMAGE OVERLAYS
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 50px;
+}
+
+/* Individual Card */
+.card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+}
+
+/* Card Image Wrapper with Gradient Overlay */
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 250px;  /* Card image height */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(183,110,121,0.3), rgba(255,255,255,0.1));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+.card h3 {
+  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  color: #b76e79;
+}
+
+.card p {
+  padding: 0 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* =========================
+   SMOOTH SCROLL NAVIGATION
+========================= */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact {
+  padding: 100px 5%; /* Ultra-luxury spacing */
+  background-color: #fdf0f3; /* Soft blush */
+  border-radius: 24px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+/* Contact Form */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact input,
+.contact textarea {
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #b76e79;
+  box-shadow: 0 0 15px rgba(183,110,121,0.3);
+}
+
+.contact button {
+  padding: 18px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #b76e79, #d29aa3);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.contact button:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #d29aa3, #b76e79);
+  box-shadow: 0 12px 25px rgba(183,110,121,0.5);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .services h2, .contact h2 {
+    font-size: 32px;
+  }
+
+  .card h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services, .contact {
+    padding: 80px 5%;
+  }
+}
